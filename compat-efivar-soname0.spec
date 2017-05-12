@@ -4,7 +4,7 @@
 #
 Name     : compat-efivar-soname0
 Version  : 0.21
-Release  : 1
+Release  : 2
 URL      : https://github.com/rhinstaller/efivar/releases/download/0.21/efivar-0.21.tar.bz2
 Source0  : https://github.com/rhinstaller/efivar/releases/download/0.21/efivar-0.21.tar.bz2
 Summary  : Tools to manage UEFI variables
@@ -65,11 +65,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1494609184
+export SOURCE_DATE_EPOCH=1494609268
 make V=1  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1494609184
+export SOURCE_DATE_EPOCH=1494609268
 rm -rf %{buildroot}
 %make_install
 
@@ -78,25 +78,53 @@ rm -rf %{buildroot}
 
 %files bin
 %defattr(-,root,root,-)
-/usr/bin/efivar
+%exclude /usr/bin/efivar
 
 %files dev
 %defattr(-,root,root,-)
-/usr/include/efivar/efiboot-creator.h
-/usr/include/efivar/efiboot-loadopt.h
-/usr/include/efivar/efiboot.h
-/usr/include/efivar/efivar-dp.h
-/usr/include/efivar/efivar-guids.h
-/usr/include/efivar/efivar.h
-/usr/lib64/libefiboot.so
-/usr/lib64/libefivar.so
-/usr/lib64/pkgconfig/efiboot.pc
-/usr/lib64/pkgconfig/efivar.pc
+%exclude /usr/include/efivar/efiboot-creator.h
+%exclude /usr/include/efivar/efiboot-loadopt.h
+%exclude /usr/include/efivar/efiboot.h
+%exclude /usr/include/efivar/efivar-dp.h
+%exclude /usr/include/efivar/efivar-guids.h
+%exclude /usr/include/efivar/efivar.h
+%exclude /usr/lib64/libefiboot.so
+%exclude /usr/lib64/libefivar.so
+%exclude /usr/lib64/pkgconfig/efiboot.pc
+%exclude /usr/lib64/pkgconfig/efivar.pc
 
 %files doc
 %defattr(-,root,root,-)
-%doc /usr/share/man/man1/*
-%doc /usr/share/man/man3/*
+%exclude /usr/share/man/man1/efivar.1
+%exclude /usr/share/man/man3/efi_append_variable.3
+%exclude /usr/share/man/man3/efi_del_variable.3
+%exclude /usr/share/man/man3/efi_get_next_variable_name.3
+%exclude /usr/share/man/man3/efi_get_variable.3
+%exclude /usr/share/man/man3/efi_get_variable_attributes.3
+%exclude /usr/share/man/man3/efi_get_variable_size.3
+%exclude /usr/share/man/man3/efi_guid_to_id_guid.3
+%exclude /usr/share/man/man3/efi_guid_to_name.3
+%exclude /usr/share/man/man3/efi_guid_to_str.3
+%exclude /usr/share/man/man3/efi_guid_to_symbol.3
+%exclude /usr/share/man/man3/efi_name_to_guid.3
+%exclude /usr/share/man/man3/efi_set_variable.3
+%exclude /usr/share/man/man3/efi_str_to_guid.3
+%exclude /usr/share/man/man3/efi_symbol_to_guid.3
+%exclude /usr/share/man/man3/efi_variable_alloc.3
+%exclude /usr/share/man/man3/efi_variable_export.3
+%exclude /usr/share/man/man3/efi_variable_free.3
+%exclude /usr/share/man/man3/efi_variable_get_attributes.3
+%exclude /usr/share/man/man3/efi_variable_get_data.3
+%exclude /usr/share/man/man3/efi_variable_get_guid.3
+%exclude /usr/share/man/man3/efi_variable_get_name.3
+%exclude /usr/share/man/man3/efi_variable_import.3
+%exclude /usr/share/man/man3/efi_variable_realize.3
+%exclude /usr/share/man/man3/efi_variable_set_attributes.3
+%exclude /usr/share/man/man3/efi_variable_set_data.3
+%exclude /usr/share/man/man3/efi_variable_set_guid.3
+%exclude /usr/share/man/man3/efi_variable_set_name.3
+%exclude /usr/share/man/man3/efi_variable_t.3
+%exclude /usr/share/man/man3/efi_variables_supported.3
 
 %files lib
 %defattr(-,root,root,-)
