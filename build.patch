@@ -1,0 +1,11 @@
+--- efivar-0.21/Make.defaults~	2015-07-13 20:00:06.000000000 +0000
++++ efivar-0.21/Make.defaults	2017-05-12 17:00:33.914881724 +0000
+@@ -12,7 +12,7 @@
+ clang_cflags =
+ gcc_cflags = -Wmaybe-uninitialized
+ cflags	:= $(CFLAGS) \
+-	-Werror -Wall -Wsign-compare -Wstrict-aliasing \
++	-Wall -Wsign-compare -Wstrict-aliasing \
+ 	-std=gnu11 -fshort-wchar -fPIC \
+ 	-fvisibility=hidden \
+ 	-D_GNU_SOURCE -I${TOPDIR}/src/include/efivar/ \
