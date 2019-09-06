@@ -4,7 +4,7 @@
 #
 Name     : compat-efivar-soname0
 Version  : 0.21
-Release  : 8
+Release  : 9
 URL      : https://github.com/rhinstaller/efivar/releases/download/0.21/efivar-0.21.tar.bz2
 Source0  : https://github.com/rhinstaller/efivar/releases/download/0.21/efivar-0.21.tar.bz2
 Summary  : Tools to manage UEFI variables
@@ -13,6 +13,8 @@ License  : LGPL-2.1
 Requires: compat-efivar-soname0-lib = %{version}-%{release}
 Requires: compat-efivar-soname0-license = %{version}-%{release}
 BuildRequires : popt-dev
+# Suppress generation of debuginfo
+%global debug_package %{nil}
 Patch1: build.patch
 Patch2: nvme.patch
 
@@ -46,7 +48,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1564677112
+export SOURCE_DATE_EPOCH=1567808091
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -59,7 +61,7 @@ make  %{?_smp_mflags}
 
 
 %install
-export SOURCE_DATE_EPOCH=1564677112
+export SOURCE_DATE_EPOCH=1567808091
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/compat-efivar-soname0
 cp COPYING %{buildroot}/usr/share/package-licenses/compat-efivar-soname0/COPYING
