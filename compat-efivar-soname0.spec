@@ -4,7 +4,7 @@
 #
 Name     : compat-efivar-soname0
 Version  : 0.21
-Release  : 9
+Release  : 10
 URL      : https://github.com/rhinstaller/efivar/releases/download/0.21/efivar-0.21.tar.bz2
 Source0  : https://github.com/rhinstaller/efivar/releases/download/0.21/efivar-0.21.tar.bz2
 Summary  : Tools to manage UEFI variables
